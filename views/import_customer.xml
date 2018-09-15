@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="test_customer_form_view" model="ir.ui.view">
+        <field name="name">Test_customer</field>
+        <field name="model">test.customer</field>
+        <!--<field name="arch" type="xml">-->
+            <!--<form>-->
+                <!--&lt;!&ndash;<group>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<field name="template_file_url" widget="url"/>&ndash;&gt;-->
+                <!--&lt;!&ndash;</group>&ndash;&gt;-->
+                <!--<group>-->
+                    <!--<field name="name" invisible ="1" attrs="{'value':'Customer'}"/>-->
+                    <!--<field name="type" invisible="1"/>-->
+                    <!--<field name="datas_fname" invisible="1"/>-->
+                    <!--<field name="datas" filename="datas_fname"/>-->
+                <!--</group>-->
+                <!--<footer>-->
+                    <!--<button name="test_customer" type="object"-->
+                            <!--string="test customer"-->
+                            <!--class="oe_highlight"/>-->
+                    <!--<button special="cancel" string="Cancel"/>-->
+                <!--</footer>-->
+            <!--</form>-->
+        <!--</field>-->
+    </record>
+
+    <record id="action_test_customer" model="ir.actions.act_window">
+        <field name="name">Test_customer</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">test.customer</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="test_customer_menu"
+              name="Test customer"
+              action="action_test_customer"
+              parent="bave_import.bave_import_menu_root" sequence="30"/>
+</odoo>
