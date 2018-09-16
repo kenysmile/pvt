@@ -67,15 +67,10 @@ class Test_customer(models.TransientModel):
             source_string = source_string.replace(' ', '')
             ls_info = source_string.split("/")
             for item in ls_info:
-                # phone_number = re.findall(r'((?:\d{10}))', item) or re.findall(r'((?:\d{11}))', item)
-                # phone_number = re.search(pattern, source_string)
-                # pattern = "[0-9](8:13)"
-                # phone_number = re.search(pattern, item)
-                # phone_number = re.findall(r'((?:\d{10}))', item) or re.findall(r'((?:\d{11}))', item) or re.findall(r'((?:\d{9}))', item)
                 phone_number = re.findall(r'((?:\d{9,13}))', item)
-                # phone_number = re.search(r'[0-9]{8,13}', item)
                 if phone_number:
-                    ls_phone.append(phone_number)
+                    ls_phone.extend(phone_number)
+
         return ls_phone
 
     def find_name(self, source_string):
@@ -115,7 +110,7 @@ class Test_customer(models.TransientModel):
         lst_customer = []
         for cont in content:
             phone = self.find_phone(cont)
-            lst_customer.append(phone)
+            lst_customer.extend(phone)
 
             # name = self.find_name(cont)
             # lst_customer.append(name)
